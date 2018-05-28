@@ -8,9 +8,13 @@ class UI extends Component {
   }
 
   formatDate(datetime) {
-    const date = new Date(datetime);
+    const dateObject = new Date(datetime);
 
-    return `${date.toLocaleTimeString()}, ${date.toLocaleDateString()}`;
+    const time = dateObject.toLocaleTimeString();
+    const date = dateObject.toLocaleDateString();
+    const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    return `${time}, ${date} (in the ${localTimeZone} time zone)`;
   }
 
   render() {
