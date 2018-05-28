@@ -6,11 +6,18 @@ class App extends Component {
     super(props);
 
     this.resetApp = this.resetApp.bind(this);
-    this.state = { mediaUrl: null, mediaRect: null }
+
+    this.state = {
+      datetime: null,
+      timeElement: null
+    };
   }
 
   resetApp() {
-    this.setState({ timestamp: null });
+    this.setState({
+      datetime: null,
+      timeElement: null
+    });
   }
 
   componentDidMount() {
@@ -20,8 +27,12 @@ class App extends Component {
       const timeElement = this.timeAtPoint(x, y);
 
       if (timeElement) {
-        const timestamp = timeElement.getAttribute('datetime');
-        this.setState({ timestamp: timestamp });
+        const datetime = timeElement.getAttribute('datetime');
+
+        this.setState({
+          datetime: datetime,
+          timeElement: timeElement
+        });
       }
     }, true);
   }
@@ -35,9 +46,12 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.timestamp) {
+    if (this.state.datetime) {
       return (
-        <UI timestamp={this.state.timestamp} />
+        <UI
+          datetime={this.state.datetime}
+          element={this.state.timeElement}
+        />
       );
     }
 
