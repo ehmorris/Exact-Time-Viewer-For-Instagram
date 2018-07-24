@@ -2,9 +2,7 @@
 
 This is a simple Chrome Extension that displays the exact time an Instagram was posted, rather than a date or some time ago.
 
-### How It Works
-
-xxx
+[Available on the Chrome Web Store](https://chrome.google.com/webstore/detail/exact-time-viewer-for-ins/koffnfmgjmoopfgelgbbkjmdnppadlae).
 
 ### Development
 
